@@ -19,11 +19,16 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>Thermostaat</title>
 </head>
 
 <body>
     <div class="app">
+    <ul>
+      <li><a class="active" href="index.html">Main</a></li>
+      <li><a href="week.html">Week</a></li>
+      <li><a href="settings.html">Instellingen</a></li>
+    </ul>
         <h1>Thermostaat</h1>
         <button onclick="app.up()">UP</button>
         <p id="temp"></p>
