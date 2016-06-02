@@ -19,24 +19,55 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css">
     <title>Week</title>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script> <!-- ja het is dubbelop, maar er gaat anders iets fout -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 </head>
 
 <body>
     <div class="app">
-    <ul>
-      <li><a href="index.html">Main</a></li>
-      <li><a class="active" href="week.html">Week</a></li>
-      <li><a href="settings.html">Instellingen</a></li>
-    </ul>
-        <h1>Week</h1>
-        <p>week schema hier</p>
+        <ul id = "navbar">
+            <li><a href="index.html">Main</a></li>
+            <li><a class="active" href="week.html">Week</a></li>
+            <li><a href="settings.html">Instellingen</a></li>
+        </ul>
+            <h1>Week Overview</h1>          
+                <div id="weekday">Monday</div>
+                <div id="weekday">Tuesday</div>
+                <div id="weekday">Wednesday</div>
+                <div id="weekday">Thursday</div>
+                <div id="weekday">Friday</div>
+                <div id="weekday">Saturday</div>
+                <div id="weekday">Sunday</div>
+
+                <input id="onselectExample" type="text" class="time ui-timepicker-input" autocomplete="off">
+                <span id="onselectTarget" style="margin-left: 30px;">
+                    <div>
+                        <script type="text/javascript">
+                        <!--
+                        var currentTime = new Date()
+                        var hours = currentTime.getHours()
+                        var minutes = currentTime.getMinutes()
+                        document.write(hours+":"+minutes);
+                        //-->
+                        </script>
+                    </div>
+                </span>
+
+                <script>
+                    $('#onselectExample').timepicker();
+                    $('#onselectExample').on('changeTime', function() {
+                        $('#onselectTarget').text($(this).val());
+                    });
+                </script> 
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/week.js"></script>
+<script type="text/javascript"> app.initialize();</script>
 </body>
 
 </html>
