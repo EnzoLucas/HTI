@@ -1,18 +1,20 @@
 var app = {
     // Application Constructor
-    initialize: function() {
-    	document.getElementById("temp").innerHTML = "20";
+    getTargetTemp: function() {
+        document.getElementById('TargetTemp').innerHTML=get("targetTemperature", "target_temperature");
     },
 
-    up: function() {
-    	var number = document.getElementById("temp").innerHTML;
-    	number++;
-   		document.getElementById("temp").innerHTML = number;
+    increaseTemp: function() {
+        var number = parseFloat(document.getElementById("TargetTemp").innerHTML);
+    	number = number + 0.5;
+        put("targetTemperature", "target_temperature", number.toFixed(1))
+   		this.getTargetTemp();
     },
 
-    down: function() {
-    	var number = document.getElementById("temp").innerHTML;
-    	number--;
-    	document.getElementById("temp").innerHTML = number;
+    decreaseTemp: function() {
+    	var number = parseFloat(document.getElementById("TargetTemp").innerHTML);
+    	number -= 0.5;
+        put("targetTemperature", "target_temperature", number.toFixed(1))
+    	this.getTargetTemp();
     }
 };

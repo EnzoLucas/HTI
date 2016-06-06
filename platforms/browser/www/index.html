@@ -19,6 +19,10 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <title>Thermostaat</title>
 </head>
 
@@ -30,14 +34,12 @@
       <li><a href="settings.html">Instellingen</a></li>
     </ul>
         <h1>Thermostaat</h1>
-        <button onclick="app.up()">UP</button>
-        <p id="temp"></p>
-        <button onclick="app.down()">DOWN</button>
+        <img onclick="app.increaseTemp();" src="img/ic_expand_less_black_48dp.png"></img>
+        <p id="TargetTemp"></p>
+        <img onclick="app.decreaseTemp();" src="img/ic_expand_more_black_48dp.png"></img>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+            app.getTargetTemp();
     </script>
 </body>
 
