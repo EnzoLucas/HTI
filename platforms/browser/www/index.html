@@ -34,12 +34,17 @@
       <li><a href="settings.html">Instellingen</a></li>
     </ul>
         <h1>Thermostaat</h1>
-        <img onclick="app.increaseTemp();" src="img/ic_expand_less_black_48dp.png"></img>
-        <p id="TargetTemp"></p>
-        <img onclick="app.decreaseTemp();" src="img/ic_expand_more_black_48dp.png"></img>
+        <h2>Target Temperature</h2>
+        <img onclick="app.increaseTemp();" src="img/ic_expand_less_black_48dp.png" width="96px"></img>
+        <h2 id="TargetTemp"></h2>
+        <img onclick="app.decreaseTemp();" src="img/ic_expand_more_black_48dp.png" width="96px"></img>
+        <h3>Current Temp:</h3>
+        <h3 id="CurrentTemp"></h3>
     </div>
     <script type="text/javascript">
+            document.getElementById('CurrentTemp').innerHTML=initialize();
             app.getTargetTemp();
+            setInterval(function(){ app.getCurrentTemp() },100);
     </script>
 </body>
 

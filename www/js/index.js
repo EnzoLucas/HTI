@@ -3,6 +3,9 @@ var app = {
     getTargetTemp: function() {
         document.getElementById('TargetTemp').innerHTML=get("targetTemperature", "target_temperature");
     },
+    getCurrentTemp: function() {
+        document.getElementById('CurrentTemp').innerHTML=get("currentTemperature", "current_temperature");
+    },
 
     increaseTemp: function() {
         var number = parseFloat(document.getElementById("TargetTemp").innerHTML);

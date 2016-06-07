@@ -125,6 +125,28 @@
         return result;
     }
 
+    function initialize() {
+        $.ajax({
+            type: "get",
+            url: ServerUrl,
+            dataType: "xml",
+            async: false,
+            statusCode: {
+                404: function() {
+                    createThermosthat();
+                    alert("Thermosthat created");
+                },
+                502: function(){
+                    alert("Server is down");
+                },
+            },
+        });
+    }
+
+    function createThermosthat() {
+        uploadData("","");
+    }
+
     /* Uploads the week program
     */
     function setWeekProgram() {
