@@ -8,6 +8,7 @@ function getTargetTemp() {
 
 function increaseTemp() {
     var number = parseFloat(document.getElementById("TargetTemp").innerHTML);
+    number = Math.floor(number*2)/2;
     number = number + 0.5;
     put("targetTemperature", "target_temperature", number.toFixed(1));
         this.getTargetTemp();
@@ -15,6 +16,7 @@ function increaseTemp() {
 
 function decreaseTemp() {
     var number = parseFloat(document.getElementById("TargetTemp").innerHTML);
+    number = Math.ceil(number*2)/2;
     number -= 0.5;
     put("targetTemperature", "target_temperature", number.toFixed(1));
     this.getTargetTemp();
@@ -46,7 +48,7 @@ function getCurrentTemp() {
 function update() {
     getTime();
     getCurrentTemp();
-    checkState();
+    //checkState();
 }
 
 function pressAndHold(callback, button) {
@@ -79,11 +81,9 @@ function checkState() {
     } else {
         $.each(Program[day], 
         function (index, value) {
-            console.log(time);
             var low = parseTime(value[0]);
             var high = parseTime(value[1]);
             if (time > low && time < high) {
-                console.log("test");
                 document.getElementById("state").innerHTML="Warm";
                 warm = true;
                 return;

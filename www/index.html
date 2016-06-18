@@ -51,6 +51,7 @@
                 <h3>Day & Time:</h3>
                 <h3 id="currentTime"></h3>
             </div>
+            <br>
             <div id="">
                 <h3>State:</h3>
                 <h3 id="state"></h3>
@@ -60,9 +61,10 @@
     <script type="text/javascript">
             initialize();
             getTargetTemp();
-            setInterval(function(){ update() },100);
             getWeekProgram();
             checkState();
+            setInterval(function(){ update() },100);
+            setInterval(function(){ checkState() },1000);
     </script>
 </body>
 
