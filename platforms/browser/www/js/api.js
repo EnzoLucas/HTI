@@ -77,7 +77,7 @@
                 return $(data).find(xml_tag).text();
             }
         );
-    return "test";
+    return;
     } 
 
 
@@ -252,6 +252,12 @@
         var end = program[idx][1];
         program.splice(idx,1);
         setWeekProgram();
+        getWeekProgram();
+        if (program.length == 4) {
+            printWeek(false);
+        } else {
+            printWeek(true);
+        }
     }
 
     /* Checks whether the temperature is within the range [5.0,30.0]

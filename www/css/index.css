@@ -37,15 +37,33 @@ body {
     text-align: center;
 }
 
-/*
+
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
+/*    .app {
         background-position:left center;
         padding:75px 0px 75px 170px;  
-        margin:-90px 0px 0px -198px;  
-                                      
+        margin:-90px 0px 0px -198px;                                        
+    }*/
+
+/*    #left {
+        float:none;
+        margin: auto;
     }
-} */
+    #right {
+        float:none;
+        margin: auto;
+    }*/
+
+    #control {
+        float: left;
+        margin-left: 10%;
+    }
+
+    #stats {
+        float: right;
+        margin-right: 10%;
+    }
+}
 
 ul {
     list-style-type: none;
@@ -67,7 +85,25 @@ li a {
     text-decoration: none;
 }
 
+/*#left {
+    float:left;
+    margin-left: 15%;
+}
+
+#right {
+    float:right;
+    margin-right: 15%;
+}*/
+
 /* Change the link color to #111 (black) on hover */
+
+.add {
+    visibility: hidden;
+}
+
+.timeSpan {
+    visibility: hidden;
+}
 
 .active {
     background-color: #4CAF50;
