@@ -247,6 +247,7 @@
        idx is the idex of the period with values from 0 to 4
     */
     function removePeriod(day, idx) {
+        var vacation = get("weekProgramState", "week_program_state");
         var program = getWeekProgram()[day];
         var start = program[idx][0];
         var end = program[idx][1];
@@ -258,6 +259,7 @@
         } else {
             printWeek(true);
         }
+        put("weekProgramState", "week_program_state", vacation);
     }
 
     /* Checks whether the temperature is within the range [5.0,30.0]

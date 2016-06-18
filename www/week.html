@@ -38,6 +38,7 @@
         </ul>
         <div id="week">
             <p>Week overview off the heating system warm periods</p>
+            <p id="vacationWarning" style="color:red;"></p>
             <div class= day id="Monday">
                 <h1>Monday</h1>
                 <div id="MondayTable"></div>
@@ -98,7 +99,8 @@
 
     <script type="text/javascript">
             getWeekProgram(false);
-            printWeek();     
+            printWeek();   
+            checkVacation()  
     </script>
     </div>
 </body>

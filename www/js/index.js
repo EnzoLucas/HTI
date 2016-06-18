@@ -2,7 +2,7 @@
 
 function getTargetTemp() {
     var temp = get("targetTemperature", "target_temperature");
-    document.getElementById('TargetTemp').innerHTML=temp;
+    document.getElementById('TargetTemp').innerHTML=temp+" &deg;C";
     this.checkButtonVisibility(temp);
 }
 
@@ -40,12 +40,13 @@ function getTime() {
 }
 
 function getCurrentTemp() {
-    document.getElementById('CurrentTemp').innerHTML=get("currentTemperature", "current_temperature");
+    document.getElementById('CurrentTemp').innerHTML=get("currentTemperature", "current_temperature")+" &deg;C";
 }
 
 function update() {
     getTime();
     getCurrentTemp();
+    checkState();
 }
 
 function pressAndHold(callback, button) {
@@ -64,5 +65,32 @@ function pressAndHold(callback, button) {
 
     button.mouseup = function() {
         clearInterval(interval);
+    }
+}
+
+function checkState() {
+    var vacation = get("weekProgramState", "week_program_state");
+    var time = parseTime(get('time', 'time'));
+    var day = get('day', 'current_day');
+    var warm = false;
+    if (vacation == "off") {
+        document.getElementById("state").innerHTML="Vacation";
+        return;
+    } else {
+        $.each(Program[day], 
+        function (index, value) {
+            console.log(time);
+            var low = parseTime(value[0]);
+            var high = parseTime(value[1]);
+            if (time > low && time < high) {
+                console.log("test");
+                document.getElementById("state").innerHTML="Warm";
+                warm = true;
+                return;
+            }
+        });
+        if (!warm){
+            document.getElementById("state").innerHTML="Cold";
+        }
     }
 }

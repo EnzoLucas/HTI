@@ -34,7 +34,7 @@
       <li><a href="week.html">Week</a></li>
       <li style="float:right"><a href="settings.html">Settings</a></li>
     </ul>
-        <h1>Thermostaat</h1>
+        <h1>Thermostate</h1>
         <div id="control">
             <h2>Target Temperature</h2>
             <img id = "increaseButton" onclick="increaseTemp();" src="img/ic_expand_less_black_48dp.png" width="96px"></img>
@@ -51,12 +51,18 @@
                 <h3>Day & Time:</h3>
                 <h3 id="currentTime"></h3>
             </div>
+            <div id="">
+                <h3>State:</h3>
+                <h3 id="state"></h3>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
             initialize();
             getTargetTemp();
             setInterval(function(){ update() },100);
+            getWeekProgram();
+            checkState();
     </script>
 </body>
 

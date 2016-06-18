@@ -44,7 +44,9 @@ function submit(day) {
 	}
 }
 
-function isHidden(el) {
-    var style = window.getComputedStyle(el);
-    return (style.display === 'none');
+function checkVacation() {
+	var value = get("weekProgramState", "week_program_state");
+	if (value == "off") {
+		document.getElementById("vacationWarning").innerHTML="Please turn of vacation mode to enable the week program.";
+	}
 }
