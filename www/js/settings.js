@@ -6,9 +6,9 @@ function getWarm() {
 }
 
 function updateWarm(value) {
-	var cold = parseFloat(get("nightTemperature", "night_temperature"));
-	value = parseFloat(value);
-	if (cold.toFixed(1) > value.toFixed(1)) {
+	var cold = (Math.round(parseFloat(get("nightTemperature", "night_temperature"))*10)/10);
+	value = (Math.round(parseFloat(value)*10)/10);
+	if (cold > value) {
 		alert("please set the warm temperature higher than the cold temperature");
 		value = cold;
 	}
@@ -39,9 +39,9 @@ function getCold() {
 }
 
 function updateCold(value) {
-	var warm = parseFloat(get("dayTemperature", "day_temperature"));
-	value = parseFloat(value);
-	if (value.toFixed(1) > warm.toFixed(1)) {
+	var warm = (Math.round(parseFloat(get("dayTemperature", "day_temperature"))*10)/10);
+	value = (Math.round(parseFloat(value)*10)/10);
+	if (value > warm) {
 		alert("please set the cold temperature lower than the warm temperature");
 		value = warm;
 	}
