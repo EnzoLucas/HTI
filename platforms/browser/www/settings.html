@@ -19,8 +19,11 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/toggle-switch.css" />
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <title>Settings</title>
 </head>
 
@@ -31,9 +34,40 @@
       <li><a href="week.html">Week</a></li>
       <li style="float:right"><a class="active" href="settings.html">Settings</a></li>
     </ul>
-        <h1>Settings</h1>
-        
+        <h1>Warm Temperature</h1>
+        <span>
+            <button onclick="subWarm();">-</button>
+            <input id="sliderWarm" type="range" min="5" max="30" step="0.1" onchange="updateWarm(this.value);" oninput="updateWarm(this.value);">
+            <button onclick="addWarm();">+</button>
+        </span>
+        <h3 id="valueWarm"></h3>
+        <h1>Cold Temperature</h1>
+        <span>
+            <button onclick="subCold();">-</button>
+            <input id="sliderCold" type="range" min="5" max="30" step="0.1" onchange="updateCold(this.value);" oninput="updateCold(this.value);">
+            <button onclick="addCold();">+</button>
+        </span>
+        <h3 id="valueCold"></h3>
+        <br>
+        <label class="switch-light switch-candy switch-candy-blue"  style="display: inline-block;">
+          <input type="checkbox" id="switchVacation" onclick="vacation();">
+          <h1>
+            Vacation mode
+          </h1>
+
+          <span>
+            <span>Off</span>
+            <span>On</span>
+            <a></a>
+          </span>
+        </label>
+        <p style="margin-left: 20%; margin-right: 20%;">When enabling vacation mode you can set a temperature for an unlimited amount of time.<br><br>The Temperature will not automatically change until you disable vacation mode again.</p>
+
     </div>
 </body>
-
+<script type="text/javascript">
+    getWarm();
+    getCold();
+    getVacation();
+</script>
 </html>

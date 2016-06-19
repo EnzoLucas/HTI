@@ -19,6 +19,7 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/EnzoStyle.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css">
     <script type="text/javascript" src="cordova.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -39,6 +40,151 @@
         <div id="week">
             <p>Week overview off the heating system warm periods</p>
             <p id="vacationWarning" style="color:red;"></p>
+
+
+        <ul class="tabs">
+          <li class="active" rel="tab1">Monday</li>
+          <li rel="tab2">Tuesday</li>
+          <li rel="tab3">Wednesday</li>
+          <li rel="tab4">Thursday</li>
+          <li rel="tab5">Friday</li>
+          <li rel="tab6">Saturday</li>
+          <li rel="tab7">Sunday</li>
+        </ul>
+
+        <div class="tab_container">
+          <h3 class="d_active tab_drawer_heading" rel="tab1">Monday</h3>
+          <div id="tab1" class="tab_content">
+              <div class= day id="Monday">
+                    <h1>Monday</h1>
+                    <div id="MondayTable"></div>
+                        <div class="add" id="addMonday">
+                            <button onclick="add('Monday');">add</button>
+                        </div>
+                        <span class="timeSpan" id="MondayTime">start: <input id="startMonday" type=time> end: <input id="endMonday" type=time> <button onclick="submit('Monday')">submit</button></span>
+                </div>
+            </div>
+          <!-- #tab1 -->
+          <h3 class="tab_drawer_heading" rel="tab2">Tuesday</h3>
+          <div id="tab2" class="tab_content">
+                <div id="Tuesday">
+                    <h1>Tuesday</h1>
+                    <div id="TuesdayTable"></div>
+                        <div class="add" id="addTuesday">
+                            <button onclick="add('Tuesday');">add</button>
+                        </div>
+                        <span class="timeSpan" id="TuesdayTime">start: <input id="startTuesday" type=time> end: <input id="endTuesday" type=time> <button onclick="submit('Tuesday')">submit</button></span>
+                </div>
+          </div>
+          <!-- #tab2 -->
+          <h3 class="tab_drawer_heading" rel="tab3">Wednesday</h3>
+          <div id="tab3" class="tab_content">
+            <div id="Wednesday">
+                <h1>Wednesday</h1>
+                <div id="WednesdayTable"></div>
+                    <div class="add" id="addWednesday">
+                        <button onclick="add('Wednesday');">add</button>
+                    </div>
+                    <span class="timeSpan" id="WednesdayTime">start: <input id="startWednesday" type=time> end: <input id="endWednesday" type=time> <button onclick="submit('Wednesday')">submit</button></span>
+            </div>
+          </div>
+          <!-- #tab3 -->
+          <h3 class="tab_drawer_heading" rel="tab4">Thursday</h3>
+          <div id="tab4" class="tab_content">
+            <div id="Thursday">
+                <h1>Thursday</h1>
+                <div id="ThursdayTable"></div>
+                    <div class="add" id="addThursday">
+                        <button onclick="add('Thursday');">add</button>
+                    </div>
+                    <span class="timeSpan" id="ThursdayTime">start: <input id="startThursday" type=time> end: <input id="endThursday" type=time> <button onclick="submit('Thursday')">submit</button></span>
+            </div>
+          </div>
+          <!-- #tab4 -->
+          <h3 class="tab_drawer_heading" rel="tab5">Friday</h3>
+          <div id="tab5" class="tab_content">
+          <div id="Friday">
+                <h1>Friday</h1>
+                <div id="FridayTable"></div>
+                <div class="add" id="addFriday">
+                    <button onclick="add('Friday');">add</button>
+                </div>
+                <span class="timeSpan" id="FridayTime">start: <input id="startFriday" type=time> end: <input id="endFriday" type=time> <button onclick="submit('Friday')">submit</button></span>
+            </div>
+          </div>
+
+          <h3 class="tab_drawer_heading" rel="tab6">Saturday</h3>
+          <div id="tab6" class="tab_content">
+          <div id="Saturday">
+                <h1>Saturday</h1>
+                <div id="SaturdayTable"></div>
+                <div class="add" id="addSaturday">
+                    <button onclick="add('Saturday');">add</button>
+                </div>
+                <span class="timeSpan" id="SaturdayTime">start: <input id="startSaturday" type=time> end: <input id="endSaturday" type=time> <button onclick="submit('Saturday')">submit</button></span>
+            </div>
+          </div>
+
+          <h3 class="tab_drawer_heading" rel="tab7">Friday</h3>
+          <div id="tab7" class="tab_content">
+          <div id="Sunday">
+                <h1>Sunday</h1>
+                <div id="SundayTable"></div>
+                <div class="add" id="addSunday">
+                    <button onclick="add('Sunday');">add</button>
+                </div>
+                <span class="timeSpan" id="SundayTime">start: <input id="startSunday" type=time> end: <input id="endSunday" type=time> <button onclick="submit('Sunday')">submit</button></span>
+            </div>
+          </div>
+        </div>
+        <!-- .tab_container -->
+        </div>
+
+        <script>
+            // tabbed content
+                // http://www.entheosweb.com/tutorials/css/tabs.asp
+                $(".tab_content").hide();
+                $(".tab_content:first").show();
+
+              /* if in tab mode */
+                $("ul.tabs li").click(function() {
+                    
+                  $(".tab_content").hide();
+                  var activeTab = $(this).attr("rel"); 
+                  $("#"+activeTab).fadeIn();        
+                    
+                  $("ul.tabs li").removeClass("active");
+                  $(this).addClass("active");
+
+                  $(".tab_drawer_heading").removeClass("d_active");
+                  $(".tab_drawer_heading[rel^='"+activeTab+"']").addClass("d_active");
+                  
+                });
+                /* if in drawer mode */
+                $(".tab_drawer_heading").click(function() {
+                  
+                  $(".tab_content").hide();
+                  var d_activeTab = $(this).attr("rel"); 
+                  $("#"+d_activeTab).fadeIn();
+                  
+                  $(".tab_drawer_heading").removeClass("d_active");
+                  $(this).addClass("d_active");
+                  
+                  $("ul.tabs li").removeClass("active");
+                  $("ul.tabs li[rel^='"+d_activeTab+"']").addClass("active");
+                });
+                
+                
+                /* Extra class "tab_last" 
+                   to add border to right side
+                   of last tab */
+                $('ul.tabs li').last().addClass("tab_last");
+            </script>
+
+
+
+<!--
+
             <div class= day id="Monday">
                 <h1>Monday</h1>
                 <div id="MondayTable"></div>
@@ -96,6 +242,7 @@
                 <span class="timeSpan" id="SundayTime">start: <input id="startSunday" type=time> end: <input id="endSunday" type=time> <button onclick="submit('Sunday')">submit</button></span>
             </div>
         </div>
+    -->
 
     <script type="text/javascript">
             getWeekProgram(false);

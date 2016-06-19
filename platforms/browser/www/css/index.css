@@ -38,21 +38,21 @@ body {
 }
 
 
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-/*    .app {
+/*@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
         background-position:left center;
         padding:75px 0px 75px 170px;  
         margin:-90px 0px 0px -198px;                                        
-    }*/
+    }
 
-/*    #left {
+    #left {
         float:none;
         margin: auto;
     }
     #right {
         float:none;
         margin: auto;
-    }*/
+    }
 
     #control {
         float: left;
@@ -63,7 +63,7 @@ body {
         float: right;
         margin-right: 10%;
     }
-}
+}*/
 
 ul {
     list-style-type: none;
@@ -106,5 +106,5 @@ li a {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #2196F3;
 }
