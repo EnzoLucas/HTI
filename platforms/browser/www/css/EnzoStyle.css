@@ -3,7 +3,7 @@ ul.tabs {
     padding: 0;
     float: left;
     list-style: none;
-    height: 32px;
+    height: 60px;
     border-bottom: 1px solid #333;
     width: 100%;
 }
@@ -13,7 +13,7 @@ ul.tabs li {
     margin: 0;
     cursor: pointer;
     padding: 0px 21px;
-    height: 31px;
+    height: 60px;
     line-height: 31px;
     border-top: 1px solid #333;
     border-left: 1px solid #333;
