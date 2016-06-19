@@ -84,13 +84,13 @@ function checkState() {
             var low = parseTime(value[0]);
             var high = parseTime(value[1]);
             if (time > low && time < high) {
-                document.getElementById("state").innerHTML="Warm";
+                document.getElementById("state").innerHTML="You are currently in the Day state";
                 warm = true;
                 return;
             }
         });
         if (!warm){
-            document.getElementById("state").innerHTML="Cold";
+            document.getElementById("state").innerHTML="You are currently in the Night state";
         }
     }
 }

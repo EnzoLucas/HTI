@@ -108,3 +108,39 @@ li a {
 .active {
     background-color: #2196F3;
 }
+.cont1 {
+   float: left;
+   margin-left: 40px;
+   padding: 10px;
+   max-height: 80%;
+   width: 35%;
+   height: 350px;
+   border: 1px solid black;
+
+}
+
+.cont2 {
+   float: right;
+   margin-right: 40px;
+   padding: 10px;
+   max-height: 80%;
+   width: 35%;
+   height: 350px;
+   border: 1px solid black;
+
+}
+
+#left{
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#right{
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#state{
+    border: 1px solid black;
+    margin: 10px;
+}
